@@ -24,7 +24,6 @@
 .wz-foot div{max-width:1280px;margin:0 auto;padding:20px 24px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:.8rem;color:var(--muted)}
 .wz-foot a{color:var(--ink2)}
 </style>
-
 <style>
 :root{
   color-scheme: light;
@@ -1482,7 +1481,7 @@ td .cve{color:var(--muted);font-size:11.5px;margin-top:2px}
       </ul>
       ${CV ? `<h3>CV section</h3>
       <ul>
-        <li>Positions, degrees, awards, grants, service, supervision and editorial roles are taken from the CV file dated ${esc(fmtDate(CV.cvDate))}, as written there. Personal contact details are left out. The CV's own citation figures (${fmtInt((CV.cvMetrics || {}).citations || 0)} citations, h-index ${(CV.cvMetrics || {}).h}) are older than the Scholar snapshot.</li>
+        <li>Positions, degrees, awards, grants, service, supervision and editorial roles are taken from the CV file dated ${esc(fmtDate(CV.cvDate))}, as written there. Personal contact details are left out.</li>
         <li><b>Grant amounts</b> are whole-grant totals as stated, not his share. The CV gives the same award date and amount for "The Future of Digital Citizenship in Qatar" and "MARSAD SP1", and the same grant number for "Critical Digital Literacy"; they are counted once, as one cluster award. Five grants have no amount and four have no dates.</li>
       </ul>` : ''}
       ${RES ? `<h3>Datasets section</h3>
@@ -1541,7 +1540,7 @@ td .cve{color:var(--muted);font-size:11.5px;margin-top:2px}
       ['Editorial roles', fmtInt(ed.length + 2), `${ed.map(e => e.label.replace(/^(Associate Editor|Editorial board), /, '')).join(', ')}, plus 2 without start dates`],
       ['Organizing roles', fmtInt(org), `Workshops, conferences and shared tasks, ${Math.min(...orgYears)} to ${Math.max(...orgYears)}`],
       ['Awards', fmtInt(aw.length), aw.length ? `Latest: ${aw[0].label.replace(/\s*\(.*\)$/, '')}, ${aw[0].year}` : ''],
-      ['Scopus FWCI', m.fwci != null ? String(m.fwci) : 'n/a', `CV figures: ${fmtInt(m.citations || 0)} citations, h-index ${m.h}, i10 ${m.i10}`],
+      ['Scopus FWCI', m.fwci != null ? String(m.fwci) : 'n/a', 'Field-weighted citation impact from Scopus, as listed in the CV'],
       ['Courses taught', fmtInt(CV.courses.length), `${CV.courses.filter(c => c.where === 'NU-Q').length} at NU-Q and ${CV.courses.filter(c => c.where === 'HBKU').length} at HBKU, ${CV.courses.reduce((n, c) => n + c.terms.length, 0)} course offerings in all`]
     ];
     $('#cvKpis').innerHTML = k.map(([l, v, d]) => `<div class="kpi"><div class="l">${l}</div><div class="v">${v}</div><div class="d">${esc(d)}</div></div>`).join('');
