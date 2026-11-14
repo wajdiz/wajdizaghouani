@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Research in numbers | Wajdi Zaghouani</title>
+<title>Research in Numbers | Wajdi Zaghouani</title>
 <meta name="description" content="Interactive dashboard of Wajdi Zaghouani's research: publications and citations from Google Scholar, shared tasks, published datasets, grants and career.">
 <link rel="canonical" href="https://wajdizaghouani.com/dashboard.html">
-<meta property="og:title" content="Wajdi Zaghouani in numbers">
+<meta property="og:title" content="Research in Numbers | Wajdi Zaghouani">
 <meta property="og:description" content="Publications, citations, shared tasks, datasets, grants and service in one interactive dashboard.">
 <meta property="og:url" content="https://wajdizaghouani.com/dashboard.html">
 <style>
@@ -141,6 +141,8 @@ dialog .row{margin:6px 0}
 .kpi .v small{font-size:14px;font-weight:500;color:var(--muted)}
 .fgroup select{padding:4px 7px;font-size:12px}
 td .vn{color:var(--muted);font-size:11.5px;font-style:italic;margin-top:1px}
+.sub .tagline{display:block;font-size:15px;color:var(--ink);margin-bottom:4px}
+.sub .srcline{display:block;font-size:12.5px;color:var(--muted)}
 .tax-area{border-top:1px solid var(--ring);padding:12px 0 10px}
 .tax-area:first-child{border-top:0;padding-top:4px}
 .tax-head{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;cursor:pointer}
@@ -182,7 +184,7 @@ td .cve{color:var(--muted);font-size:11.5px;margin-top:2px}
 <header class="wz-top"><div class="wz-top-in">
   <a href="index.html" class="wz-brand"><i>WZ</i><span>Wajdi Zaghouani</span></a>
   <ul class="wz-links">
-    <li><a href="index.html">Home</a></li><li><a href="research.html">Research</a></li><li><a href="publications.html">Publications</a></li><li><a href="teaching.html">Teaching</a></li><li><a href="dashboard.html" class="on">Dashboard</a></li>
+    <li><a href="index.html">Home</a></li><li><a href="research.html">Research</a></li><li><a href="publications.html">Publications</a></li><li><a href="teaching.html">Teaching</a></li><li><a href="dashboard.html" class="on">In Numbers</a></li>
   </ul>
   <a href="cv.html" class="wz-cv">CV ↗</a>
 </div></header>
@@ -190,7 +192,7 @@ td .cve{color:var(--muted);font-size:11.5px;margin-top:2px}
 <div class="wrap">
   <header class="top">
     <div>
-      <h1 id="title">Wajdi Zaghouani in numbers</h1>
+      <h1 id="title">Research in Numbers</h1>
       <p class="sub" id="subtitle"></p>
     </div>
     <div class="actions">
@@ -1135,11 +1137,12 @@ td .cve{color:var(--muted);font-size:11.5px;margin-top:2px}
   function renderHeader() {
     const pr = META.profile || {}, [a, b] = yrange();
     const owner = (META.owner && META.owner.name) || A.OWNER.name;
-    document.title = 'Research in numbers | ' + owner;
-    $('#title').textContent = owner + ' in numbers';
-    $('#subtitle').innerHTML = `Every item on ${esc(owner)}'s Google Scholar profile, <b>${a} to ${b}</b>` +
+    document.title = 'Research in Numbers | ' + owner;
+    $('#title').textContent = 'Research in Numbers';
+    $('#subtitle').innerHTML = `<span class="tagline">Publications, citations, datasets, shared tasks and grants, updated from Google Scholar.</span>` +
+      `<span class="srcline">Every item on ${esc(owner)}'s Google Scholar profile, <b>${a} to ${b}</b>` +
       (META.owner && META.owner.position ? ` (${esc(META.owner.position)})` : '') + `. Profile copied on <b>${esc(fmtDate(META.snapshot))}</b>` +
-      (pr.Citations ? `. Scholar profile: ${fmtInt(pr.Citations.all)} citations (${fmtInt(pr.Citations.since)} since ${pr.sinceYear}), h-index ${pr['h-index'].all}, i10-index ${pr['i10-index'].all}.` : '.');
+      (pr.Citations ? `. Scholar profile: ${fmtInt(pr.Citations.all)} citations (${fmtInt(pr.Citations.since)} since ${pr.sinceYear}), h-index ${pr['h-index'].all}, i10-index ${pr['i10-index'].all}.` : '.') + '</span>';
   }
 
   function renderFilters() {

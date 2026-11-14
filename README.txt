@@ -8,7 +8,7 @@ Pages:
   publications.html   Links to Google Scholar and ACL Anthology
   teaching.html       Courses and graduate supervision
   cv.html             Research metrics, summary, CV download
-  dashboard.html      Interactive research dashboard (Scholar data, datasets, CV)
+  dashboard.html      Research in Numbers: interactive page (Scholar data, datasets, CV)
 
 Assets:
   img/                Portrait photo
